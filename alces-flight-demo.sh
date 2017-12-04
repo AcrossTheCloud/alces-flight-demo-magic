@@ -11,10 +11,14 @@ clear
 # Put your stuff here
 PROMPT_TIMEOUT=0
 wait
+pe 'alces gridware install main/mpi/openmpi/1.10.2'
+pe 'module load mpi/openmpi/1.10.2'
 pe 'git clone https://github.com/matthewberryman/dinodigging'
 pe 'cd dinodigging'
+pe 'make'
 pe 'sbatch run.sh'
 pe 'tail -f slurm-2.out'
+pe 'cd ..'
 pe 'git clone -b summit-demo https://github.com/AcrossTheCloud/alces-flight-odm'
 pe 'cd alces-flight-odm'
 pe 'alces storage enable s3'
